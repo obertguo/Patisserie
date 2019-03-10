@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://obertguo:windows8pro@ds123635.mlab.com:23635/patisserie';
+const url = 'hostURL';
 const dbName = 'patisserie';
 module.exports = {
     name: 'time',
     description: "Add/Del time.",
     execute(message, args) {
+
         if(message.author.id !== '226457061959925761') return;
         const targetUser = message.client.users.find(res => res.id === args[1]);
         const secondsToChange = parseInt(args[2]);

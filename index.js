@@ -6,17 +6,19 @@ const {prefix , token} = require('./config.json');
 client.commands = new Discord.Collection();
 
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://obertguo:windows8pro@ds123635.mlab.com:23635/patisserie';
+const url = 'hostURL';
 const dbName = 'patisserie';
 
 
-
+//client starts
 
 client.on('ready' , () =>{
     console.log(`Logged in as ${client.user.tag}`);
     client.user.setActivity(`${client.users.size} pianists need to pracc!` , {type : "STREAMING"});
 });
+//
 
+//Runs js files in cmds  folder
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -40,7 +42,7 @@ client.on('message' , message => {
         message.channel.send(`:warning: __**\`Command Execution Failed.\`**__\n\`\`\`js\n${error}\`\`\``);
 }
 });
-
+//
 
 
 //Pracc Module

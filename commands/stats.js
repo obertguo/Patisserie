@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://obertguo:windows8pro@ds123635.mlab.com:23635/patisserie';
+const url = 'hostURL';
 const dbName = 'patisserie';
 module.exports = {
     name: 'stats',
