@@ -1,7 +1,7 @@
 # 🍰 Patisserie Bot 🍰 (Node v8.11.3)
-**Project Manager**  *愛莉#0001 (Airi)*
+ **Project Manager**  *愛莉#0001 (Airi)*
 **Lead Developer**  *Kai 🌸#9919 (Kai)*
-**Supporters**  *Meekity-#3754 (Meek) | mellow#0002 (Mellow)*
+**Supporters**  *Meekity-#3754 (Meek) | mellow#0002 (Mellow) | [Pinano Repository](https://github.com/ubermadness/Pinano-Discord-Bot)*
 ---
 ## Dependencies
 * Discord.js v11.4.2
