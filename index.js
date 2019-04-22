@@ -136,5 +136,14 @@ client.on('voiceStateUpdate', async (oldMember, newMember) => {
     }
 });
 
+client.on('messageDelete', (messageDelete) => {
+    const deleteEmbed = new Discord.RichEmbed()
+    .setAuthor(`${messageDelete.author.tag} deleted a message`, messageDelete.author.avatarURL)
+    .setDescription(`\`${messageDelete.content}\` in ${messageDelete.channel}`)
+    .setColor('#ff6961')
+    .setTimestamp();
+    client.channels.find(res => res.id === '569695667988201492').send({embed: deleteEmbed});
+});
+
 
 client.login(token);
