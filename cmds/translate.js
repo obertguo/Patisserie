@@ -108,20 +108,20 @@ const langs = {
     'zu': 'Zulu'
 };
 
-module.exports = {
-    
-    name: 'translate',
-    description: "Translate things uwu.",
-    execute(message, args) {
+exports.run =  (message, client, args) => { 
+   
+        args.shift();
         const langArg = args[0];
-        const msgArg = args.join(' ').replace(`${args[0]}`, '');
+        args.shift();
+        const msgArg = args.join(' ');
+        
         const translateEmbed = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
         .setColor('#779ecb');
 
-        if(!langArg) return message.channel.send(`\`\`\`JSON\n${JSON.stringify(langs).split(',').join(',\n')}\nProvide a language code. Format is c!translate langCode inputText\`\`\``);
+        if(!langArg) return message.channel.send(`\`\`\`JSON\n${JSON.stringify(langs).split(',').join(',\n')}\n${client.prefix}translate langCode inputText\`\`\``);
         if(langs.hasOwnProperty(langArg) === false) return message.channel.send('Invalid language code.');
-        if(!msgArg) return message.channel.send('Input a text.');
+        if(!msgArg) return message.channel.send('Baka there\'s nothing to translate!');
 
         translate(msgArg, {from: 'auto', to: langArg}).then(res => {
             translateEmbed.fields = [{name:'Input', value: `\`\`\`${msgArg}\`\`\``}, {name: `Output [${langs[langArg]}]`, value: `\`\`\`${res.text}\`\`\``}];
@@ -129,4 +129,7 @@ module.exports = {
         }).catch(err => {console.error(err);});
 
     }
-}
+
+    exports.info = {
+        description: 'French big gaye 🅱'
+    }
